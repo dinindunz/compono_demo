@@ -4,7 +4,8 @@ from aws_cdk import (
 from cdk_constructs import (
     build_ecr_image as ecr,
     deploy_eks_cluster as eks,
-    deploy_eks_fargate_cluster as eks_fargate
+    deploy_eks_fargate_cluster as eks_fargate,
+    deploy_ecs_fargate_cluster as ecs_fargate
 )
 from constructs import Construct
 
@@ -32,4 +33,10 @@ class Deploy(Stack):
             container_port=8080
         )
 
+        ecs_fargate.DeployEcsCluster(
+            self, 'Compono_ECS_App_Demo',
+            ecr_repo_name=ecr_repo_name,
+            image_tag=image_tag,
+            container_port=8080
+        )
         
