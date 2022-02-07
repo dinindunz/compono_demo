@@ -1,0 +1,386 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "App" {
+    subgraph "cluster-SubGraph.App" {
+      graph [
+        label = "App",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#f3f3f3",
+      ];
+      subgraph "cluster-SubGraph.CDK-Pipeline-EKS-Clusters" {
+        graph [
+          label = "CDK-Pipeline-EKS-Clusters",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        subgraph "cluster-SubGraph.deploy_pipeline" {
+          graph [
+            label = "deploy_pipeline",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "CDK-Pipeline-EKS-Clusters/deploy_pipeline/Pipeline" [
+            label = " Pipeline",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "CDK-Pipeline-EKS-Clusters/deploy_pipeline/UpdatePipeline/SelfMutation" [
+            label = " SelfMutation",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+        }
+      }
+      subgraph "cluster-SubGraph.EKS-Cluster" {
+        graph [
+          label = "EKS-Cluster",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        "EKS-Cluster/Custom__CDKECRDeploymentbd07c930edb94112a20f03f096f53666512MiB" [
+          label = " Custom \nCDKECRDeploymentbd07c",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.4819999999999998,
+        ];
+        "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
+          label = " Deploy EKS App Alpha\nCluster",
+          fontsize = 12,
+        ];
+        "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStack/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStackResource" [
+          label = " CloudFormation Stack",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider.NestedStack/@aws-cdk--aws-eks.KubectlProvider.NestedStackResource" [
+          label = " CloudFormation Stack",
+          fontsize = 12,
+          image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        subgraph "cluster-SubGraph.Build_ECR_cdk--eks_app_alpha" {
+          graph [
+            label = "Build_ECR_cdk--eks_app_alpha",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "EKS-Cluster/Build_ECR_cdk--eks_app_alpha/Build_ECR_cdk--eks_app_alpha" [
+            label = " Build ECR cdk  eks\napp alpha",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_Amazon-Elastic-Container-Registry_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "EKS-Cluster/Build_ECR_cdk--eks_app_alpha/ecr_deployment/CustomResource" [
+            label = " CloudFormation\nCustomResource\nCustomResource",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.898,
+          ];
+        }
+        subgraph "cluster-SubGraph.@aws-cdk--aws-eks.ClusterResourceProvider" {
+          graph [
+            label = "@aws-cdk--aws-eks.ClusterResourceProvider",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/NodeProxyAgentLayer" [
+            label = " NodeProxyAgentLayer",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/OnEventHandler" [
+            label = " OnEventHandler",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/IsCompleteHandler" [
+            label = " IsCompleteHandler",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          subgraph "cluster-SubGraph.Provider" {
+            graph [
+              label = "Provider",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#c7c7c7",
+            ];
+            "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/Provider/framework-onEvent" [
+              label = " framework-onEvent",
+              fontsize = 12,
+              image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/Provider/framework-isComplete" [
+              label = " framework-isComplete",
+              fontsize = 12,
+              image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/Provider/framework-onTimeout" [
+              label = " framework-onTimeout",
+              fontsize = 12,
+              image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider/Provider/waiter-state-machine/Role" [
+              label = " Role",
+              fontsize = 12,
+              image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+          }
+        }
+        subgraph "cluster-SubGraph.@aws-cdk--aws-eks.KubectlProvider" {
+          graph [
+            label = "@aws-cdk--aws-eks.KubectlProvider",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider/Handler" [
+            label = " Handler",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider/AwsCliLayer" [
+            label = " AwsCliLayer",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider/KubectlLayer" [
+            label = " KubectlLayer",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider/Provider/framework-onEvent" [
+            label = " framework-onEvent",
+            fontsize = 12,
+            image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+        }
+      }
+    }
+  }
+  "CDK-Pipeline-EKS-Clusters/deploy_pipeline/Pipeline" -> "CDK-Pipeline-EKS-Clusters/deploy_pipeline/UpdatePipeline/SelfMutation" [
+    dir = "both",
+  ];
+  "CDK-Pipeline-EKS-Clusters/deploy_pipeline/UpdatePipeline/SelfMutation" -> "CDK-Pipeline-EKS-Clusters/deploy_pipeline/Pipeline" [
+    dir = "both",
+  ];
+  "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStack/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStackResource" -> "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
+    dir = "both",
+  ];
+  "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider.NestedStack/@aws-cdk--aws-eks.KubectlProvider.NestedStackResource" -> "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
+    dir = "both",
+  ];
+}
