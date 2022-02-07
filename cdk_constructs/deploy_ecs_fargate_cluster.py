@@ -19,6 +19,8 @@ class DeployEcsCluster(Construct):
         #Create EKS Cluster
         vpc=_ec2.Vpc(
           self, 'vpc',
+          vpc_name='Fragate_ECS_VPC',
+          cidr='10.1.0.0/16',
           max_azs=3
         )
         cluster=_ecs.Cluster(
