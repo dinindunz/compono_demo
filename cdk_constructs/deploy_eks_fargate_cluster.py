@@ -18,6 +18,13 @@ class DeployEksCluster(Construct):
             version=_eks.KubernetesVersion.V1_21
         )
 
+        eks_cluster.add_nodegroup_capacity(
+            'node_group',
+            min_size=1,
+            max_size=2,
+            instance_types=[_ec2.InstanceType('t2.micro')]
+        )
+
         #Deploy the App
         #eks_cluster.add_manifest("mypod", {
         #    "apiVersion": "v1",
