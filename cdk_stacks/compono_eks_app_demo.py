@@ -3,7 +3,8 @@ from aws_cdk import (
 )
 from cdk_constructs import (
     build_ecr_image as ecr,
-    deploy_eks_cluster as eks
+    deploy_eks_cluster as eks,
+    deploy_eks_fargate_cluster as eks_fargate
 )
 from constructs import Construct
 
@@ -24,11 +25,11 @@ class Deploy(Stack):
             region=self.region
         )
 
-        #eks.DeployEksCluster(
-        #    self, 'Deploy_Compono_EKS_App_Demo',
-        #    ecr_repo_name=ecr_repo_name,
-        #    image_tag=image_tag,
-        #    container_port=8080
-        #)
+        eks_fargate.DeployEksCluster(
+            self, 'Deploy_Compono_EKS_App_Demo',
+            ecr_repo_name=ecr_repo_name,
+            image_tag=image_tag,
+            container_port=8080
+        )
 
         
