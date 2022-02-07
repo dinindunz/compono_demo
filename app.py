@@ -14,7 +14,7 @@ CdkCodePipelineStack(
     app, 'Compono-CDK-Pipeline-Deploy-EKS-Clusters',
     owner='dinindunz',
     repo='compono_demo',
-    codestar_con='1a99dd90-d0a9-4d4a-a4f7-cb3b28d6a4ea',
+    codestar_con='7a9f07d8-2b5c-4524-9530-c41d269c5c86',
     env=env[0],
 )
 
